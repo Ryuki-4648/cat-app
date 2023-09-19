@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Button } from "./components/ui/button/Button";
+import { Modal } from "./components/ui/modal/Modal";
 
 function App() {
   return (
@@ -15,9 +16,13 @@ function App() {
           ねこちゃんが好きそうな動きを選んでください。
         </p>
 
-        <div className="border rounded-lg w-1/3 p-8">
-          <Button className="mb-4">aaaaa</Button>
-          <Button>bbbbb</Button>
+        <div className="border rounded-lg w-1/3 px-8 py-12 flex flex-wrap justify-center">
+          <Button className="mb-4" onClick={toggleModal}>
+            にょろにょろ
+          </Button>
+          <Button className="mb-4">bbbbb</Button>
+          <Button>ccc</Button>
+          <Modal />
         </div>
       </div>
     </div>
