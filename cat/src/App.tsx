@@ -11,6 +11,11 @@ function App() {
     setModalOpen(!modalOpen);
   };
 
+  const [displayModal, setDisplayModal] = useState(false);
+  const onClickButton = () => {
+    setDisplayModal(!displayModal);
+  };
+
   return (
     <div className="bg-primary-bg h-screen">
       <header className="App-header">
@@ -27,6 +32,12 @@ function App() {
           <Button className="mb-4">bbbbb</Button>
           <Button>ccc</Button>
           <Modal isModalOpen={modalOpen} onModalClose={toggleModal} />
+          <button onClick={onClickButton}>click</button>
+          {displayModal && (
+            <div className="w-5/6 h-5/6 absolute z-10 bg-slate-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-4">
+              modal open
+            </div>
+          )}
         </div>
       </div>
     </div>
