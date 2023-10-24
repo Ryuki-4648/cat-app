@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 
 export type ButtonProps = {
   children: ReactNode;
@@ -8,7 +8,10 @@ export type ButtonProps = {
 
 export const Button = ({ className, children, onClick }: ButtonProps) => {
   return (
-    <button className={`bg-white w-64 h-12 ${className}`} onClick={onClick}>
+    <button
+      className={`bg-primary-accent01 w-64 h-12 ${className}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

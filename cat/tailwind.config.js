@@ -8,6 +8,7 @@ module.exports = {
           DEFAULT: "#d996b6",
           bg: "#f5f5f5",
           text: "#333",
+          accent01: "#db1d3d",
         },
       },
     },
@@ -18,5 +19,4 @@ module.exports = {
     "./public/index.html",
   ],
   plugins: [],
-}
-
+};
