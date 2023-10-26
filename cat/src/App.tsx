@@ -8,6 +8,7 @@ import { Modal } from "./components/ui/modal/Modal";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [overlay, setOverlay] = useState(false);
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
@@ -17,18 +18,34 @@ function App() {
   const [displayModal02, setdisplayModal02] = useState(false);
   const [displayModal03, setdisplayModal03] = useState(false);
   const onClickButton01 = () => {
-    setdisplayModal01(!displayModal01);
-  };
-  const onClickButton02 = () => {
-    setdisplayModal02(!displayModal02);
-  };
-  const onClickButton03 = () => {
-    setdisplayModal03(!displayModal03);
-  };
-  const onClickCloseButton = () => {
-    setdisplayModal01(false);
+    setdisplayModal01(true);
+    setModalOpen(true);
     setdisplayModal02(false);
     setdisplayModal03(false);
+    setOverlay(true);
+  };
+  const onClickButton02 = () => {
+    setdisplayModal02(true);
+    setModalOpen(true);
+    setdisplayModal01(false);
+    setdisplayModal03(false);
+    setOverlay(true);
+  };
+  const onClickButton03 = () => {
+    setdisplayModal03(true);
+    setModalOpen(true);
+    setdisplayModal02(false);
+    setdisplayModal01(false);
+    setOverlay(true);
+  };
+  const onClickCloseButton = () => {
+    setModalOpen(false);
+    setOverlay(false);
+  };
+
+  const onClickOverlay = () => {
+    setModalOpen(false);
+    setOverlay(false);
   };
 
   return (
@@ -67,26 +84,34 @@ function App() {
               鳥の詰め合わせ
             </Button>
           </div>
-          {displayModal01 && (
-            <div className="w-5/6 h-5/6 absolute z-10 bg-slate-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-4">
-              modal open1（へびがニョロニョロ動くアニメーション）
-              <img src={logo} className="w-12 animation01" alt="" />
-              <button onClick={onClickCloseButton} className="">
-                close
-              </button>
-            </div>
+
+          {overlay && (
+            <div
+              className="w-full h-full absolute z-0 bg-black opacity-80 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+              onClick={onClickOverlay}
+            ></div>
           )}
-          {displayModal02 && (
+
+          {modalOpen && (
             <div className="w-5/6 h-5/6 absolute z-10 bg-slate-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-4">
-              modal open2（ランダムに動くボール）
-              <img src={logo} className="w-12 animation02" alt="" />
-              <button onClick={onClickCloseButton}>close</button>
-            </div>
-          )}
-          {displayModal03 && (
-            <div className="w-5/6 h-5/6 absolute z-10 bg-slate-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-4">
-              modal open3（左右に動く鳥のアニメーション）
-              <img src={logo} className="w-12 animation03" alt="" />
+              {displayModal01 && (
+                <div>
+                  modal open1（へびがニョロニョロ動くアニメーション）
+                  <img src={logo} className="w-12 animation01" alt="" />
+                </div>
+              )}
+              {displayModal02 && (
+                <div>
+                  modal open2（ランダムに動くボール）
+                  <img src={logo} className="w-12 animation02" alt="" />
+                </div>
+              )}
+              {displayModal03 && (
+                <div>
+                  modal open3（左右に動く鳥のアニメーション）
+                  <img src={logo} className="w-12 animation03" alt="" />
+                </div>
+              )}
               <button onClick={onClickCloseButton}>close</button>
             </div>
           )}
