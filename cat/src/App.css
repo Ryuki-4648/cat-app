@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.game01animation01 {
+  animation: yurayura01 8s linear infinite;
+}
+@keyframes yurayura01 {
+  0% , 100%{
+    transform: rotate(5deg);
+  }
+  50%{
+    transform: rotate(-5deg);
+  }
+}
+.game01animation02 {
+  animation: yurayura01 12s linear infinite;
+}
+@keyframes yurayura02 {
+  0% , 100%{
+    transform: rotate(8deg);
+  }
+  50%{
+    transform: rotate(-8deg);
+  }
+}
+.game01animation03 {
+  animation: yurayura03 8s linear infinite;
+}
+@keyframes yurayura03 {
+  0% , 100%{
+    transform: rotate(5deg);
+  }
+  50%{
+    transform: rotate(-5deg);
+  }
+}

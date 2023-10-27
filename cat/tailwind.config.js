@@ -9,6 +9,7 @@ module.exports = {
           bg: "#f5f5f5",
           text: "#333",
           accent01: "#db1d3d",
+          game01bg: "#28a1c9",
         },
       },
     },

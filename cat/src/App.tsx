@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
-import image01 from "./assets/img/image01.png";
+import headerImage from "./assets/img/image01.png";
+import game01image01 from "./assets/img/game01_image01.png";
+import game01image02 from "./assets/img/game01_image02.png";
+import game01image03 from "./assets/img/game01_image03.png";
 import logo01 from "./assets/img/logo01.png";
 import "./App.css";
 import { Button } from "./components/ui/button/Button";
-import { Modal } from "./components/ui/modal/Modal";
+// import { Modal } from "./components/ui/modal/Modal";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [overlay, setOverlay] = useState(false);
 
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
-  };
+  // const toggleModal = () => {
+  //   setModalOpen(!modalOpen);
+  // };
 
   const [displayModal01, setdisplayModal01] = useState(false);
   const [displayModal02, setdisplayModal02] = useState(false);
@@ -20,31 +23,23 @@ function App() {
   const onClickButton01 = () => {
     setdisplayModal01(true);
     setModalOpen(true);
-    setdisplayModal02(false);
-    setdisplayModal03(false);
     setOverlay(true);
   };
   const onClickButton02 = () => {
     setdisplayModal02(true);
     setModalOpen(true);
-    setdisplayModal01(false);
-    setdisplayModal03(false);
     setOverlay(true);
   };
   const onClickButton03 = () => {
     setdisplayModal03(true);
     setModalOpen(true);
-    setdisplayModal02(false);
-    setdisplayModal01(false);
     setOverlay(true);
   };
   const onClickCloseButton = () => {
     setModalOpen(false);
-    setOverlay(false);
-  };
-
-  const onClickOverlay = () => {
-    setModalOpen(false);
+    setdisplayModal01(false);
+    setdisplayModal02(false);
+    setdisplayModal03(false);
     setOverlay(false);
   };
 
@@ -58,7 +53,7 @@ function App() {
           <img src={logo01} alt="" className="mx-auto" />
         </h1>
 
-        <img src={image01} alt="" className="w-24" />
+        <img src={headerImage} alt="" className="w-24" />
         <p className="w-full text-center mb-8 mt-8">
           ねこちゃんが好きそうな動きを選んで遊んでみよう。
         </p>
@@ -69,7 +64,7 @@ function App() {
               className="mb-4 text-white font-bold"
               onClick={onClickButton01}
             >
-              にょろにょろ
+              ゆらゆら
             </Button>
             <Button
               className="mb-4 text-white font-bold"
@@ -88,16 +83,36 @@ function App() {
           {overlay && (
             <div
               className="w-full h-full absolute z-0 bg-black opacity-80 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
-              onClick={onClickOverlay}
+              onClick={onClickCloseButton}
             ></div>
           )}
 
           {modalOpen && (
-            <div className="w-5/6 h-5/6 absolute z-10 bg-slate-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-4">
+            <div className="w-5/6 h-5/6 absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               {displayModal01 && (
-                <div>
-                  modal open1（へびがニョロニョロ動くアニメーション）
-                  <img src={logo} className="w-12 animation01" alt="" />
+                <div className="relative w-full h-full p-6 bg-primary-game01bg rounded-2xl">
+                  <p className="text-lg leading-loose tracking-wider">
+                    チンアナゴの親子とニシキアナゴのおともだち、
+                    <br />
+                    いつも海の中でゆらゆら。
+                    <br />
+                    たまにけんかもするけれど、今日はなかよし。
+                  </p>
+                  <img
+                    src={game01image01}
+                    className="w-24 game01animation01 absolute bottom-2 left-1/3"
+                    alt=""
+                  />
+                  <img
+                    src={game01image02}
+                    className="w-24 game01animation02 absolute bottom-5 left-1/2"
+                    alt=""
+                  />
+                  <img
+                    src={game01image03}
+                    className="w-20 game01animation03 absolute bottom-6 left-1/4"
+                    alt=""
+                  />
                 </div>
               )}
               {displayModal02 && (
@@ -115,7 +130,7 @@ function App() {
               <button onClick={onClickCloseButton}>close</button>
             </div>
           )}
-          <Modal isModalOpen={modalOpen} onModalClose={toggleModal} />
+          {/* <Modal isModalOpen={modalOpen} onModalClose={toggleModal} /> */}
         </div>
       </div>
     </div>
