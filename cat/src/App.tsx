@@ -56,6 +56,8 @@ function App() {
         <img src={headerImage} alt="" className="w-24" />
         <p className="w-full text-center mb-8 mt-8">
           ねこちゃんが好きそうな動きを選んで遊んでみよう。
+          <br />
+          下のゲームほど動きが速くなるよ。
         </p>
 
         <div className="w-1/3 shadow-sm bg-white px-4 py-2">
@@ -70,7 +72,7 @@ function App() {
               className="mb-4 text-white font-bold"
               onClick={onClickButton02}
             >
-              跳ねるボール
+              すいすい
             </Button>
             <Button
               className="mb-4 text-white font-bold"
@@ -116,14 +118,23 @@ function App() {
                 </div>
               )}
               {displayModal02 && (
-                <div>
-                  modal open2（ランダムに動くボール）
-                  <img src={logo} className="w-12 animation02" alt="" />
+                <div className="relative w-full h-full p-6 bg-primary-game02bg rounded-2xl overflow-hidden">
+                  <p>池の中の鯉、ランダムに動く</p>
+                  <img
+                    src={logo}
+                    className="w-12 absolute game02animation01"
+                    alt=""
+                  />
+                  <img
+                    src={logo}
+                    className="w-12 absolute game02animation02"
+                    alt=""
+                  />
                 </div>
               )}
               {displayModal03 && (
                 <div>
-                  modal open3（左右に動く鳥のアニメーション）
+                  にゃんだろ〜光線（すばやく動く光）
                   <img src={logo} className="w-12 animation03" alt="" />
                 </div>
               )}
